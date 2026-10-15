@@ -246,6 +246,24 @@ Draft implementation spec
 
 **Review:** Codex found 3 test changes. Eacch was a typo in the original tests, and I approved each.
 
+## 4. Frontend Implementation
+
+**Prompt Used:** Here is my backend endpoint and how to use it (pasted), along with project description. I am building a Vue 3 and Vite project for the frontend. Provide a suggested component architecture and base project layout, as well as suggested libraries for generating graphs with our data.
+
+**Why:** I am beginning frontend implementation and want suggestions about architecture and tools to review before getting an implementation spec ready for codex.
+
+**Review**: Decided to go with native chart.js library through vue. I agree with component structures, and it made sure to let me know to be careful of timezones
 
 
 
+**Prompt Used:**: Ok. let's use chart.js via vue-chartjs and I agree with your component layout. Build me a spec for codex (spec guide included) to implement base file structures, no implementation
+
+**Why:** I want a component spec guide for codex to set up frontend project structure
+
+**Review**: Output looks good, handing to codex for implementation
+
+**Prompt Used:**: (Scaffolding spec provided) to codex
+
+**Why:** Codex implements frontend structure for me to verify
+
+**Review:** Looks as planned, moving on to implementation.
