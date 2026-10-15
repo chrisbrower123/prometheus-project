@@ -269,8 +269,32 @@ Draft implementation spec
 
 **Review:** Looks as planned, moving on to implementation.
 
-**Prompt Used**: Using given coding standards, write an implementation guide for codex to implement the front-end
+**Prompt Used**: Using given coding standards, write an implementation guide for codex to implement the front-end. We are only going to display the input, the button, and a chart. Ignore styling for now, that will come next.
 
 **Why:** Want defined behavior for codex implementation of frontend
 
 **Review**: Looks good, handing to codex for implementation
+
+**Prompt Used:** (Implementation spec provided) to codex
+
+**Why**: Codex to implement base app components with no styling to test baseline requirements
+
+**Review**: App is functioning and calls backend endpoint correctly. Page is unstyled
+
+**Prompt Used**: This project is for prometheus group. We are now going to style the frontend for their company. Write an implementation guide for codex for this purpose. Right now, the whole page is unstyled. We should have the chart and table side-by-side, as well, with the search bar above it.
+
+**Why**: It is time to style the project, so I ask to gather the correct styling before adding to project.
+
+**Review**: Not good, does not use the Prometheus style.
+
+**Prompt Used**: (copied prometheus css sheet from homepage and handed to claude) Compile this style sheet into an implementation guide for codex to apply styles
+
+**Why:** Needed more accurate prometheus style
+
+**Review:** Looks good now, handing to codex for implementation
+
+**Prompt Used:** (Implementation spec provided) to codex
+
+**Why**: Codex to implement style formats and add brand image
+
+**Review**: Page is Prometheus styled, looks good
