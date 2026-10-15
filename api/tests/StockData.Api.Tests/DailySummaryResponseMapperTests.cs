@@ -68,6 +68,6 @@ public sealed class DailySummaryResponseMapperTests
         };
         var responses = summaries.ToResponse();
         Assert.Equal(3, responses.Count);
-        Assert.Equal("2026-01-15", responses[0].Day); Assert.Equal(3, responses[2].Volume);
+        Assert.Equal("2026-01-15", responses[0].Day); Assert.Equal(9, responses[2].Volume);
     }
 }

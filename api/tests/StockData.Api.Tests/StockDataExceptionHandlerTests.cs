@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using StockData.Api.ErrorHandling;
@@ -35,7 +36,7 @@ public sealed class StockDataExceptionHandlerTests
         var (context, body, _, handler) = HandlerHarness.Create();
         await handler.TryHandleAsync(context, exception, CancellationToken.None);
         Assert.Equal("application/problem+json", context.Response.ContentType);
-        Assert.Contains(type, body.ToArray().Length == 0 ? string.Empty : "traceId");
+        Assert.Contains(type, System.Text.Encoding.UTF8.GetString(body.ToArray()));
     }
 
     [Theory]
@@ -55,7 +56,9 @@ public sealed class StockDataExceptionHandlerTests
         var first = HandlerHarness.Create(); var second = HandlerHarness.Create();
         await first.Handler.TryHandleAsync(first.Context, new SymbolNotFoundException(new Symbol("TSLA")), CancellationToken.None);
         await second.Handler.TryHandleAsync(second.Context, new NoDataAvailableException(new Symbol("TSLA")), CancellationToken.None);
-        Assert.NotEqual(first.Context.Response.Headers.ContentType, second.Context.Response.Headers.ContentType);
+        var firstProblem = JsonDocument.Parse(System.Text.Encoding.UTF8.GetString(first.Body.ToArray()));
+        var secondProblem = JsonDocument.Parse(System.Text.Encoding.UTF8.GetString(second.Body.ToArray()));
+        Assert.NotEqual(firstProblem.RootElement.GetProperty("type").GetString(), secondProblem.RootElement.GetProperty("type").GetString());
     }
 
     [Fact]

@@ -1,3 +1,4 @@
+using System.Globalization;
 using StockData.Domain.Models;
 namespace StockData.Api.Contracts;
 /// <summary>Maps domain summaries to API responses.</summary>
@@ -5,14 +6,17 @@ public static class DailySummaryResponseMapper
 {
     public static IReadOnlyList<DailySummaryResponse> ToResponse(this IReadOnlyList<DailySummary> summaries)
     {
-        // TODO: map each summary with the single-item mapper.
-        throw new NotImplementedException();
+        ArgumentNullException.ThrowIfNull(summaries);
+        return summaries.Select(ToResponse).ToArray();
     }
 
     /// <summary>Maps one summary.</summary>
     public static DailySummaryResponse ToResponse(this DailySummary summary)
     {
-        // TODO: round averages away from zero to four decimals and format the day as yyyy-MM-dd.
-        throw new NotImplementedException();
+        return new DailySummaryResponse(
+            summary.Day.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture),
+            Math.Round(summary.LowAverage, 4, MidpointRounding.AwayFromZero),
+            Math.Round(summary.HighAverage, 4, MidpointRounding.AwayFromZero),
+            summary.Volume);
     }
 }

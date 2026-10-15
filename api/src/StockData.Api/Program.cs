@@ -29,7 +29,7 @@ app.UseStatusCodePages(async (StatusCodeContext context) =>
     response.Clear();
     response.StatusCode = statusCode;
     response.ContentType = "application/problem+json";
-    await response.WriteAsJsonAsync(new { status = response.StatusCode, title = "Request failed", type = "about:blank", traceId = context.HttpContext.TraceIdentifier }, cancellationToken: context.HttpContext.RequestAborted);
+    await response.WriteAsJsonAsync(new { status = response.StatusCode, title = "Request failed", type = "about:blank", traceId = context.HttpContext.TraceIdentifier }, options: null, contentType: "application/problem+json", cancellationToken: context.HttpContext.RequestAborted);
 });
 if (app.Environment.IsDevelopment()) { app.UseSwagger(); app.UseSwaggerUI(); }
 app.UseRouting();
