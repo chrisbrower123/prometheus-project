@@ -94,12 +94,66 @@ With these decisions, draft an implementation spec for codex to draft these test
 
 **Review:** The spec looks good, handed off to copilot for test drafting
 
+
+
 **Prompt used:** (Implementation spec) Draft the Domain/Core unit tests, writing real tests while not implementing domain logic. 
 
 **Why:** Establish the expected domain behavior and edge cases before implementing the production logic.
 
-**Review:** Trimmed the Domain suite to 44 focused tests: essential success paths, meaningful validation and boundary cases, provider/service failures, cancellation, duplicate timestamps, and a small set of timezone tests retained as skipped review items. Removed redundant permutations and the old scaffolding test. The red-phase run is 33 failed, 11 passed, and 3 skipped in Domain; API has 4 skipped placeholder tests and Infrastructure has 8 skipped placeholder tests. The solution builds with .NET SDK 10.0.301, the installed SDK in this environment.
+**Review:** Wayyyy too many tests, next prompt will be trimming these to essential edge and success cases.
 
+
+**Prompt used:** (Codex) Reduce the bulk of the domain test class focusing on validation, exception contracts, aggregator behavior, and service orchestration. 
+
+**Why:** Needed to trim test cases, 150 tests as 1/3 of testing project is too bulky for this behavior
+
+**Review:** Muchhhh better and focused test cases, keeping output, pushing to github, and moving to API tests
+
+
+
+**Prompt used:** Using the same strategy, draft me tests for the Infrastructure project, let me make decisions, and we will draft an Infrastructure test spec.
+
+**Why:** Needed basic test cases for the Infrastructure project to review and decide before drafting spec
+
+**Review:** Way too many tests again, made 14 decisions for claude and will ask for implementation spec next
+
+**Prompt Used**: Decision 1: Correct
+
+D2: Ignore unexpected data
+
+D3: Use first result
+
+D4:Empty series, but this should be decided in a separate way
+
+D5: Truncate
+
+D6: Fallback
+
+D7:Sounds good
+
+D8: We can wrap this as ProvderUnavailable
+
+D9:Cap the value
+
+D10: Surface as retry-after
+
+D11: 2 retries 
+
+D12: Tolerate it
+
+D13: Allowed hhtp, tests need it
+
+D14: Use curl where possible. 
+
+
+
+Now, draft the feature spec for Infrastructure tests. We want to keep test number under 50, but test important capabilities.
+
+**Why:** Need to clarify important app behavior before drafting test spec.
+
+**Review:** Output looks good. Handing off to codex for implementation
+
+**Prompt used:**
 
 ## 3. Vue frontend
 

@@ -10,5 +10,5 @@ public sealed class YahooFinanceOptions
     /// <summary>HTTP user agent.</summary>
     [Required] public string UserAgent { get; set; } = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36";
     /// <summary>HTTP timeout.</summary>
-    [Range(typeof(TimeSpan), "00:00:01", "00:05:00")] public TimeSpan Timeout { get; set; } = TimeSpan.FromSeconds(10);
+    [Range(typeof(TimeSpan), "00:00:01", "00:01:00")] public TimeSpan Timeout { get; set; } = TimeSpan.FromSeconds(10);
 }

@@ -1,0 +1,8 @@
+namespace StockData.Infrastructure.Tests.TestSupport;
+
+public static class Payloads
+{
+    public const string Valid = "{\"chart\":{\"result\":[{\"meta\":{\"symbol\":\"TSLA\",\"exchangeTimezoneName\":\"America/New_York\",\"gmtoffset\":-18000},\"timestamp\":[1760000000,1760000900],\"indicators\":{\"quote\":[{\"high\":[40.3,41.2],\"low\":[39.1,40.2],\"volume\":[1000,0]}]}}],\"error\":null}}";
+    public static string Error(string code, string description = "description") => $"{{\"chart\":{{\"result\":null,\"error\":{{\"code\":\"{code}\",\"description\":\"{description}\"}}}}}}";
+    public static string Result(string result) => $"{{\"chart\":{{\"result\":{result},\"error\":null}}}}";
+}

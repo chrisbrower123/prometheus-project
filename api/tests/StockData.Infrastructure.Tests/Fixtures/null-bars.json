@@ -1,0 +1,1 @@
+{"chart":{"result":[{"meta":{"symbol":"TSLA","exchangeTimezoneName":"America/New_York","gmtoffset":-18000},"timestamp":[1760000000,1760000900,1760001800,1760002700],"indicators":{"quote":[{"high":[40.3,null,41.2,42.0],"low":[39.1,40.0,null,41.0],"volume":[1000,2000,3000,null]}]}}],"error":null}}
