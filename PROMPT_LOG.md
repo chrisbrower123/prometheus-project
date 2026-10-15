@@ -215,3 +215,26 @@ Draft implementation spec
 **Why**: Codex implements test-drivenly, and must request any changes to tests
 
 **Review:** Codex found a contradictory test, and asked if it could alter. I approved, and suite is green.
+
+
+
+**Prompt used:** Alter the guide for the infrastructure test suite
+
+**Why:** I wanted a more focused guide for codex's next step
+
+**Review:** Handing to codex for implementation
+
+
+
+**Prompt used:** (Implementation guide provided to codex)
+
+**Why**: Codex implements test-drivenly, and must request any changes to tests
+
+**Review:** Codex found a contradictory test, and asked if it could alter. I approved, and suite is green.
+
+
+
+
+
+
+

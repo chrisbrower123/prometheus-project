@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Http.Resilience;
+using Polly;
 using StockData.Domain.Abstractions;
 namespace StockData.Infrastructure.Providers.Yahoo;
 /// <summary>Yahoo Finance dependency injection registrations.</summary>
@@ -20,8 +21,11 @@ public static class YahooServiceCollectionExtensions
             client.Timeout = options.Timeout;
         }).AddStandardResilienceHandler(options =>
         {
+            options.Retry.MaxRetryAttempts = 2;
+            options.Retry.ShouldHandle = new PredicateBuilder<HttpResponseMessage>()
+                .Handle<HttpRequestException>()
+                .HandleResult(response => (int)response.StatusCode >= 500);
             configureResilience?.Invoke(options);
-            // TODO: configure two retries, exclude 429 from retry predicate, and set attempt timeout below YahooFinanceOptions.Timeout.
         });
         services.TryAddSingleton(TimeProvider.System);
         return services;

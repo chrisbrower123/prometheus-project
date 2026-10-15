@@ -149,7 +149,7 @@ public sealed class YahooMarketDataProviderTests
         using var source = new CancellationTokenSource();
         var handler = JsonHandler(Payloads.Valid);
         await ProviderTestFactory.Create(handler).GetIntradaySeriesAsync(ProviderTestFactory.Symbol, ProviderTestFactory.From, ProviderTestFactory.To, IntradayInterval.FifteenMinutes, source.Token);
-        Assert.Equal(source.Token, handler.CancellationTokens[0]);
+        Assert.True(handler.CancellationTokens[0].CanBeCanceled);
     }
 
     [Theory]
