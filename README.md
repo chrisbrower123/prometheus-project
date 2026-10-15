@@ -1,5 +1,5 @@
 # prometheus-project
-A take-home project for prometheus. Problem description attached
+My take-home project from Prometheus, an intraday stock visualization tool.
 
 ## Run with Docker
 
