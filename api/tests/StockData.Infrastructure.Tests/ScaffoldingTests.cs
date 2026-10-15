@@ -1,0 +1,3 @@
+namespace StockData.Infrastructure.Tests;
+public sealed class YahooResponseMapperTests { [Fact(Skip = "TODO: implement")] public void MapsValidPayload() { } [Fact(Skip = "TODO: implement")] public void SkipsNullBars() { } [Fact(Skip = "TODO: implement")] public void MapsErrorPayload() { } [Fact(Skip = "TODO: implement")] public void ResolvesTimezone() { } }
+public sealed class YahooMarketDataProviderTests { [Fact(Skip = "TODO: implement")] public void Maps404() { } [Fact(Skip = "TODO: implement")] public void Maps429WithRetryAfter() { } [Fact(Skip = "TODO: implement")] public void Maps5xx() { } [Fact(Skip = "TODO: implement")] public void MapsMalformedJson() { } }

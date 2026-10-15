@@ -1,0 +1,32 @@
+# .NET build output
+**/bin/
+**/obj/
+
+# Visual Studio / VS Code user files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vscode/
+
+# Test and coverage output
+TestResults/
+coverage/
+*.trx
+
+# Local API configuration and secrets
+**/appsettings.Development.json
+**/appsettings.Local.json
+*.env
+*.env.*
+!.env.example
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+
+
+#config
+
+.editorconfig
