@@ -262,8 +262,15 @@ Draft implementation spec
 
 **Review**: Output looks good, handing to codex for implementation
 
+
 **Prompt Used:**: (Scaffolding spec provided) to codex
 
 **Why:** Codex implements frontend structure for me to verify
 
 **Review:** Looks as planned, moving on to implementation.
+
+**Prompt Used**: Using given coding standards, write an implementation guide for codex to implement the front-end
+
+**Why:** Want defined behavior for codex implementation of frontend
+
+**Review**: Looks good, handing to codex for implementation
