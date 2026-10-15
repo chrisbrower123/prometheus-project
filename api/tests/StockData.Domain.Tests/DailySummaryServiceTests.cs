@@ -17,7 +17,10 @@ public sealed class DailySummaryServiceTests
         var provider = Substitute.For<IMarketDataProvider>();
         var aggregator = Substitute.For<IDailyAggregator>();
         var timeProvider = new FakeTimeProvider(Now);
-        var series = new IntradaySeries(new Symbol("TSLA"), TimeZoneInfo.Utc, Array.Empty<IntradayBar>());
+        var series = new IntradaySeries(new Symbol("TSLA"), TimeZoneInfo.Utc, new[]
+        {
+            new IntradayBar(Now, 110m, 100m, 10),
+        });
         provider.GetIntradaySeriesAsync(Arg.Any<Symbol>(), Arg.Any<DateTimeOffset>(), Arg.Any<DateTimeOffset>(), Arg.Any<IntradayInterval>(), Arg.Any<CancellationToken>())
             .Returns(series);
         aggregator.Aggregate(series).Returns(Array.Empty<DailySummary>());

@@ -145,12 +145,17 @@ D13: Allowed hhtp, tests need it
 
 D14: Use curl where possible. 
 
-
-
-
 **Why:** Need to clarify important app behavior before drafting test spec.
 
 **Review:** Output looks good. Handing off to codex for implementation
+
+
+
+**Prompt used:**(Spec attached to codex) Implement according to spec
+
+**Why:** Get a baseline of tests before implementation done by codex to a strict standard
+
+**Review:** Output looks good.
 
 
 
@@ -158,7 +163,7 @@ D14: Use curl where possible.
 
 **Why:** Needed basic test cases for the API project to review and decide before drafting spec
 
-**Review:** Way too many tests again, made 14 decisions for claude and will ask for implementation spec next
+**Review:** Way too many tests again, made 12 decisions for claude and will ask for implementation spec next
 
 
 **Prompt used:**
@@ -189,10 +194,24 @@ D12: 28 is good for method count.
 
 Draft implementation spec
 
-## 3. Vue frontend
+**Prompt used:**(Spec attached to codex) Implement according to spec
 
-**Prompt used:** 
+**Why:** Get a baseline of tests before implementation done by codex to a strict standard
 
-**Why:** 
+**Review:** Output looks good.
 
-**Review:** 
+## 3. API Implementation
+
+**Prompt used:** Write me an implementation guide for codex to implement the domain (i renamed core to domain) tests. Tell it it cannot loosen tests and if it wants to do so it needs approval first. Otherwise, it should iterate until all tests are passing. 
+
+**Why:** Needed a quick guide so codex does not go off the rails while implementing, sticks to structure, and greens tests
+
+**Review:** Spec looks good. Handing to codex for domain project implementation
+
+
+
+**Prompt used:** (Implementation guide provided to codex)
+
+**Why**: Codex implements test-drivenly, and must request any changes to tests
+
+**Review:** Codex found a contradictory test, and asked if it could alter. I approved, and suite is green.

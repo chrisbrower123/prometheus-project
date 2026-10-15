@@ -1,8 +1,17 @@
 namespace StockData.Domain.Exceptions;
 /// <summary>Raised when a provider rate-limits a request.</summary>
-public sealed class ProviderRateLimitedException(TimeSpan? retryAfter = null) : StockDataException("Provider rate limited the request")
+public sealed class ProviderRateLimitedException : StockDataException
 {
-    // TODO: reject non-positive retryAfter values with ArgumentOutOfRangeException.
+    public ProviderRateLimitedException(TimeSpan? retryAfter = null) : base("Provider rate limited the request")
+    {
+        if (retryAfter <= TimeSpan.Zero)
+        {
+            throw new ArgumentOutOfRangeException(nameof(retryAfter), retryAfter, "Retry delay must be positive.");
+        }
+
+        RetryAfter = retryAfter;
+    }
+
     /// <summary>Suggested retry delay.</summary>
-    public TimeSpan? RetryAfter { get; } = retryAfter;
+    public TimeSpan? RetryAfter { get; }
 }
