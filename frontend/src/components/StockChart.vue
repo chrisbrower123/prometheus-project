@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { Chart } from 'vue-chartjs'
-import { BarElement, CategoryScale, Chart as ChartJS, Legend, LinearScale, LineElement, PointElement, Tooltip, type ChartData, type ChartOptions, type ChartType } from 'chart.js'
+import { BarController, BarElement, CategoryScale, Chart as ChartJS, Legend, LinearScale, LineController, LineElement, PointElement, Tooltip, type ChartData, type ChartOptions, type ChartType } from 'chart.js'
 import type { DailySummary } from '../types/stock'
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, LineElement, PointElement, Tooltip, Legend)
+ChartJS.register(CategoryScale, LinearScale, BarController, BarElement, LineController, LineElement, PointElement, Tooltip, Legend)
 const props = defineProps<{ summaries: DailySummary[] }>()
 
 const chartData = computed<ChartData<ChartType>>(() => ({
