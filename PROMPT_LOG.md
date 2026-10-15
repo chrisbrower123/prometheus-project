@@ -147,13 +147,47 @@ D14: Use curl where possible.
 
 
 
-Now, draft the feature spec for Infrastructure tests. We want to keep test number under 50, but test important capabilities.
 
 **Why:** Need to clarify important app behavior before drafting test spec.
 
 **Review:** Output looks good. Handing off to codex for implementation
 
+
+
+**Prompt used:** Using the same strategy, draft me tests for the API project, let me make decisions, and we will draft an API test spec.
+
+**Why:** Needed basic test cases for the API project to review and decide before drafting spec
+
+**Review:** Way too many tests again, made 14 decisions for claude and will ask for implementation spec next
+
+
 **Prompt used:**
+D1: Fake provider, not service
+
+D2: 429 here makes sense
+
+D3: 504 split does make sense, but keep it simple to 502
+
+D4: Status code pages are okay
+
+D5: Make handler return false and don't log an error
+
+D6: We do need to deal with CORS, so expect that
+
+D7: Convention works
+
+D8: 500 here
+
+D9: Health does not call yahoo
+
+D10: Only rule from section 2
+
+D11: Trim trailing zeros
+
+D12: 28 is good for method count.
+
+
+Draft implementation spec
 
 ## 3. Vue frontend
 
