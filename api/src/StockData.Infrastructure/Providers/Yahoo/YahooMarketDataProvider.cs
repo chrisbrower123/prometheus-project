@@ -12,7 +12,6 @@ internal sealed class YahooMarketDataProvider(HttpClient httpClient, IOptions<Ya
     public async Task<IntradaySeries> GetIntradaySeriesAsync(Symbol symbol, DateTimeOffset from, DateTimeOffset until, IntradayInterval interval, CancellationToken cancellationToken)
     {
         _ = options;
-        httpClient.Timeout = Timeout.InfiniteTimeSpan;
         if (from >= until) throw new ArgumentException("The start instant must be before the end instant.");
         var intervalValue = interval switch
         {
